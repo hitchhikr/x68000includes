@@ -1,1 +1,1 @@
-Contains IOCS, DOS calls and hardware registers with annotations.
+Contains IOCS, DOS calls and (almost all) hardware registers with annotations and comments.
