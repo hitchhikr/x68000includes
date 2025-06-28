@@ -4,15 +4,15 @@
 _B_KEYINP           equ     $00         ; Get key scan codes
 _B_KEYSNS           equ     $01         ; Get key scan codes if a key was pressed
 _B_SFTSNS           equ     $02         ; Get the LED/"shift modes"
-_KEY_INIT           equ     $03		    ; Initialize input
+_KEY_INIT           equ     $03         ; Initialize input
 _BITSNS             equ     $04         ; Return the status of the keys
 _SKEYSET            equ     $05
-_LEDCTRL            equ     $06		    ; Configure keyboard LEDs
-_LEDSET             equ     $07			; Adjust keyboard LED to key input mode
-_KEYDLY             equ     $08			; Set key repeat start delay
-_KEYREP             equ     $09			; Set key repeat interval
-_KEYTVON            equ     $0a	        ; TV control permission by OPT.2
-_KEYTVOFF           equ     $0b	        ; TV control prohibited by OPT.2
+_LEDCTRL            equ     $06         ; Configure keyboard LEDs
+_LEDSET             equ     $07         ; Adjust keyboard LED to key input mode
+_KEYDLY             equ     $08         ; Set key repeat start delay
+_KEYREP             equ     $09         ; Set key repeat interval
+_KEYTVON            equ     $0a         ; TV control permission by OPT.2
+_KEYTVOFF           equ     $0b         ; TV control prohibited by OPT.2
 _TVCTRL             equ     $0c         ; Various TV controls (Volume/power/channel/etc.) 
 _LEDMOD             equ     $0d         ; Various "lock" LED switches (Capslock, Romaji entry, Kana entry, etc.)
 _TGUSEMD            equ     $0e         ; Text/Graph display mode usage getting/setting
@@ -23,7 +23,7 @@ _HSVTORGB           equ     $12         ; Converts an HSV color to RGB color
 _TPALET             equ     $13         ; Specify textmode palette colors (1)
 _TPALET2            equ     $14         ; Specify textmode palette colors (2)
 _TCOLOR             equ     $15         ; Specify text color
-_FNTADR             equ     $16			; Get font address
+_FNTADR             equ     $16         ; Get font address
 _VRAMGET            equ     $17         ; Byte-by-byte reading of text VRAM
 _VRAMPUT            equ     $18         ; Byte-by-byte writing of text VRAM
 _FNTGET             equ     $19         ; Load font into buf
@@ -55,11 +55,11 @@ _INP232C            equ     $32
 _ISNS232C           equ     $33
 _OSNS232C           equ     $34
 _OUT232C            equ     $35
-_M_DATADDR          equ     $36	        ; Set processing address when receiving mouse data
-_ESC_DATADDR        equ     $37	        ; Set extended processing address for ESC[> type escape sequences
-_SETFNTADR          equ     $38		    ; Set custom character font address
-_BEEPSETPCM         equ     $39	        ; PCM data settings for BEEP sound
-_PRNSET             equ     $3a	        ; Printer parameter settings
+_M_DATADDR          equ     $36         ; Set processing address when receiving mouse data
+_ESC_DATADDR        equ     $37         ; Set extended processing address for ESC[> type escape sequences
+_SETFNTADR          equ     $38         ; Set custom character font address
+_BEEPSETPCM         equ     $39         ; PCM data settings for BEEP sound
+_PRNSET             equ     $3a         ; Printer parameter settings
 _JOYGET             equ     $3b         ; Gets Joystick values.
 _INIT_PRN           equ     $3c
 _SNSPRN             equ     $3d
@@ -147,17 +147,17 @@ _BOOTINF            equ     $8e
 _ROMVER             equ     $8f
 _G_CLR_ON           equ     $90         ; Clear screen.
 _G_SETMOD           equ     $91         ; Set graphic screen mode
-_G_PRISET           equ     $92	        ; Priority settings
-_G_SETSCR           equ     $93	        ; Screen display and special mode settings
+_G_PRISET           equ     $92         ; Priority settings
+_G_SETSCR           equ     $93         ; Screen display and special mode settings
 _GPALET             equ     $94
-_G_SETCOLORS        equ     $95	        ; Color code settings
-_G_SETACCESS        equ     $96	        ; Access page settings
-_G_DOTLOAD          equ     $97	        ; Dot-by-dot loading of graphics VRAM
-_G_DOTWRTMSK        equ     $98	        ; Graphic VRAM dot-by-dot writing (with color mask)
-_G_DOTWRT           equ     $99	        ; Graphics VRAM dot-by-dot write
-_G_BITWRT           equ     $9a	        ; Graphic VRAM bit pattern writing
-_G_BITWRTBCK        equ     $9b	        ; Graphic VRAM bit pattern writing (with back color)
-_G_BITWRTENL        equ     $9c	        ; Graphic VRAM bit pattern enlargement writing
+_G_SETCOLORS        equ     $95         ; Color code settings
+_G_SETACCESS        equ     $96         ; Access page settings
+_G_DOTLOAD          equ     $97         ; Dot-by-dot loading of graphics VRAM
+_G_DOTWRTMSK        equ     $98         ; Graphic VRAM dot-by-dot writing (with color mask)
+_G_DOTWRT           equ     $99         ; Graphics VRAM dot-by-dot write
+_G_BITWRT           equ     $9a         ; Graphic VRAM bit pattern writing
+_G_BITWRTBCK        equ     $9b         ; Graphic VRAM bit pattern writing (with back color)
+_G_BITWRTENL        equ     $9c         ; Graphic VRAM bit pattern enlargement writing
 _SFTJIS             equ     $a0
 _JISSFT             equ     $a1
 _AKCONV             equ     $a2
@@ -355,7 +355,7 @@ ERS                 macro
                     trap    #TRAP_IOSCALL
                     endm
 
-_MUSICDRV           equ     $f3		    ; MUSICDRV control
+_MUSICDRV           equ     $f3         ; MUSICDRV control
 
 IOCS                macro
                     ifne    \1<$80
