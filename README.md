@@ -1,1 +1,3 @@
-Contains IOCS, DOS calls and (almost all) hardware registers with annotations and comments.
+IOCS, DOS calls and (almost all) X68000 hardware registers with annotations and comments in assembly format.
+
+A work in progress...
