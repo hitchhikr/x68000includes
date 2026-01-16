@@ -51,7 +51,7 @@ TIMER_B_IRQ         equ     $120        ; $48 MFP Timer-B
 KEY_OUT_ERR_IRQ     equ     $124        ; $49 MFP Key serial output error
 KEY_OUT_EMPTY_IRQ   equ     $128        ; $4a MFP Key serial output empty
 KEY_IN_ERR_IRQ      equ     $12C        ; $4b MFP Key serial input error
-KEY_IN_IRQ          equ     $130        ; $4c MFP Key serial input 
+KEY_IN_IRQ          equ     $130        ; $4c MFP Key serial input
 TIMER_A_IRQ         equ     $134        ; $4d MFP Timer-A
 CRTC_IRQ            equ     $138        ; $4e MFP CRTC*IRQ
 HBL_IRQ             equ     $13C        ; $4f MFP H-SYNC
@@ -1170,7 +1170,7 @@ SYS_PORT4           equ     $E8E007         ; Keyboard/NMI/dot clock control (r/
 ;          However, in the case of 0, 0 wait is applied during static column operation,
 ;          and 4 wait is applied when spanning between pages.
 ; * Port added in X68030.
-; * $4 (6 waits) is equivalent to 16M Hz mode,
+; * $4 (6 waits) is equivalent to 16 MHz mode,
 ;   $a (12 waits) is equivalent to 10 MHz mode.
 SYS_PORT5           equ     $E8E009         ; ROM/DRAM wait number control (w)
 ; bit 7-4: CPU Type
@@ -1906,10 +1906,10 @@ SCREEN_VERT_POS     equ     $EB080E         ; Vertical position
 ;        0 = 15.98 kHz
 ;        1 = 31.50 kHz
 ; bit 2-3: VRES
-;          00 = 256 
+;          00 = 256
 ;          01 = 512
 ; bit 0-1: HRES
-;          00 = 256 
+;          00 = 256
 ;          01 = 512
 SCREEN_SET_RES      equ     $EB0810         ; Resolution settings
 
