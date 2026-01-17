@@ -12,6 +12,7 @@
 
 ------------------------------------------------------------------
 
+
 This time, we will post a list of the work areas used by IOCS ($0800.w to $0FFF.w, all undisclosed).
 
 This is a summary compiled by the author after analyzing the ROM on his own, so please do not contact Sharp or Hudson.
@@ -23,7 +24,6 @@ This document does not provide a full comparison of ROMs and is primarily based 
 I haven't analyzed every part completely, so there may be some blank spaces and some mistakes.
 
 This material is provided without warranty.
-
 
 
 ------------------------------------------------------------------
@@ -628,4 +628,5 @@ Unlike #[$097E.w].l, it also hijacks standard escape sequences.
 0D1C.w  .w          [13] Interpretation of the length parameter of TX- (0 = end point - start point, 1 = number of dots)
 
 
+------------------------------------------------------------------
 (EOF)

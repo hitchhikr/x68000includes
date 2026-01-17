@@ -1,38 +1,38 @@
-;
-; iocscall.inc X68k XC Compiler v2.11 Copyright 1993 SHARP/Hudson
-;
-_B_KEYINP           equ     $00         ; Get key scan codes
-_B_KEYSNS           equ     $01         ; Get key scan codes if a key was pressed
-_B_SFTSNS           equ     $02         ; Get the LED/"shift modes"
-_KEY_INIT           equ     $03         ; Initialize input
-_BITSNS             equ     $04         ; Return the status of the keys
+; ------------------------------------------------------------------
+; IOCS calls
+; ------------------------------------------------------------------
+_B_KEYINP           equ     $00
+_B_KEYSNS           equ     $01
+_B_SFTSNS           equ     $02
+_KEY_INIT           equ     $03
+_BITSNS             equ     $04
 _SKEYSET            equ     $05
-_LEDCTRL            equ     $06         ; Configure keyboard LEDs
-_LEDSET             equ     $07         ; Adjust keyboard LED to key input mode
-_KEYDLY             equ     $08         ; Set key repeat start delay
-_KEYREP             equ     $09         ; Set key repeat interval
-_KEYTVON            equ     $0a         ; TV control permission by OPT.2
-_KEYTVOFF           equ     $0b         ; TV control prohibited by OPT.2
-_TVCTRL             equ     $0c         ; Various TV controls (Volume/power/channel/etc.) 
-_LEDMOD             equ     $0d         ; Various "lock" LED switches (Capslock, Romaji entry, Kana entry, etc.)
-_TGUSEMD            equ     $0e         ; Text/Graph display mode usage getting/setting
-_DEFCHR             equ     $0f         ; Define a character set
-_CRTMOD             equ     $10         ; Set Screen Attributes
-_CONTRAST           equ     $11         ; Set contrast
-_HSVTORGB           equ     $12         ; Converts an HSV color to RGB color
-_TPALET             equ     $13         ; Specify textmode palette colors (1)
-_TPALET2            equ     $14         ; Specify textmode palette colors (2)
-_TCOLOR             equ     $15         ; Specify text color
-_FNTADR             equ     $16         ; Get font address
-_VRAMGET            equ     $17         ; Byte-by-byte reading of text VRAM
-_VRAMPUT            equ     $18         ; Byte-by-byte writing of text VRAM
-_FNTGET             equ     $19         ; Load font into buf
-_TEXTGET            equ     $1a         ; Read text VRAM into buf
-_TEXTPUT            equ     $1b         ; Write text VRAM from buf
-_CLIPPUT            equ     $1c         ; Write text VRAM from buf with clipping
-_SCROLL             equ     $1d         ; Set/check screen layer coordinates
-_B_CURON            equ     $1e         ; Turn on the text cursor
-_B_CUROFF           equ     $1f         ; Turn off the text cursor
+_LEDCTRL            equ     $06
+_LEDSET             equ     $07
+_KEYDLY             equ     $08
+_KEYREP             equ     $09
+_OPT2TVON           equ     $0a
+_OPT2TVOFF          equ     $0b
+_TVCTRL             equ     $0c
+_LEDMOD             equ     $0d
+_TGUSEMD            equ     $0e
+_DEFCHR             equ     $0f
+_CRTMOD             equ     $10
+_CONTRAST           equ     $11
+_HSVTORGB           equ     $12
+_TPALET             equ     $13
+_TPALET2            equ     $14
+_TCOLOR             equ     $15
+_FNTADR             equ     $16
+_VRAMGET            equ     $17
+_VRAMPUT            equ     $18
+_FNTGET             equ     $19
+_TEXTGET            equ     $1a
+_TEXTPUT            equ     $1b
+_CLIPPUT            equ     $1c
+_SCROLL             equ     $1d
+_B_CURON            equ     $1e
+_B_CUROFF           equ     $1f
 _B_PUTC             equ     $20
 _B_PRINT            equ     $21
 _B_COLOR            equ     $22
@@ -55,12 +55,12 @@ _INP232C            equ     $32
 _ISNS232C           equ     $33
 _OSNS232C           equ     $34
 _OUT232C            equ     $35
-_M_DATADDR          equ     $36         ; Set processing address when receiving mouse data
-_ESC_DATADDR        equ     $37         ; Set extended processing address for ESC[> type escape sequences
-_SETFNTADR          equ     $38         ; Set custom character font address
-_BEEPSETPCM         equ     $39         ; PCM data settings for BEEP sound
-_PRNSET             equ     $3a         ; Printer parameter settings
-_JOYGET             equ     $3b         ; Gets Joystick values.
+_MS_VCS             equ     $36
+_EXESC              equ     $37
+_CHR_ADR            equ     $38
+_SETBEEP            equ     $39
+_SETPRN             equ     $3a
+_JOYGET             equ     $3b
 _INIT_PRN           equ     $3c
 _SNSPRN             equ     $3d
 _OUTLPT             equ     $3e
@@ -109,13 +109,13 @@ _OPMSET             equ     $68
 _OPMSNS             equ     $69
 _OPMINTST           equ     $6a
 _TIMERDST           equ     $6b
-_VDISPST            equ     $6c         ; De/Install a vsync handler
+_VDISPST            equ     $6c
 _CRTCRAS            equ     $6d
-_HSYNCST            equ     $6e         ; De/Install a hsync handler
+_HSYNCST            equ     $6e
 _PRNINTST           equ     $6f
 _MS_INIT            equ     $70
-_MS_CURON           equ     $71         ; Turn on mouse cursor.
-_MS_CUROF           equ     $72         ; Turn off mouse cursor.
+_MS_CURON           equ     $71
+_MS_CUROF           equ     $72
 _MS_STAT            equ     $73
 _MS_GETDT           equ     $74
 _MS_CURGT           equ     $75
@@ -126,14 +126,14 @@ _MS_ONTM            equ     $79
 _MS_PATST           equ     $7a
 _MS_SEL             equ     $7b
 _MS_SEL2            equ     $7c
-_SKEY_MOD           equ     $7d         ; Controls Soft-keyboard.
+_SKEY_MOD           equ     $7d
 _DENSNS             equ     $7e
 _ONTIME             equ     $7f
 _B_INTVCS           equ     $80
-_B_SUPER            equ     $81         ; Supervisor mode switch.
+_B_SUPER            equ     $81
 _B_BPEEK            equ     $82
 _B_WPEEK            equ     $83
-_B_LPEEK            equ     $84         ; Memory read (1 longword)
+_B_LPEEK            equ     $84
 _B_MEMSTR           equ     $85
 _B_BPOKE            equ     $86
 _B_WPOKE            equ     $87
@@ -145,19 +145,19 @@ _DMAMOV_L           equ     $8c
 _DMAMODE            equ     $8d
 _BOOTINF            equ     $8e
 _ROMVER             equ     $8f
-_G_CLR_ON           equ     $90         ; Clear screen.
-_G_SETMOD           equ     $91         ; Set graphic screen mode
-_G_PRISET           equ     $92         ; Priority settings
-_G_SETSCR           equ     $93         ; Screen display and special mode settings
-_GPALET             equ     $94
-_G_SETCOLORS        equ     $95         ; Color code settings
-_G_SETACCESS        equ     $96         ; Access page settings
-_G_DOTLOAD          equ     $97         ; Dot-by-dot loading of graphics VRAM
-_G_DOTWRTMSK        equ     $98         ; Graphic VRAM dot-by-dot writing (with color mask)
-_G_DOTWRT           equ     $99         ; Graphics VRAM dot-by-dot write
-_G_BITWRT           equ     $9a         ; Graphic VRAM bit pattern writing
-_G_BITWRTBCK        equ     $9b         ; Graphic VRAM bit pattern writing (with back color)
-_G_BITWRTENL        equ     $9c         ; Graphic VRAM bit pattern enlargement writing
+_G_CLR_ON           equ     $90
+_G_SETMOD           equ     $91
+_G_PRISET           equ     $92
+_G_SETSCR           equ     $93
+_G_PALET            equ     $94
+_G_PENCOL           equ     $95
+_G_SETPAGE          equ     $96
+_G_DOTLOAD          equ     $97
+_G_DOTWRTMSK        equ     $98
+_G_DOTWRT           equ     $99
+_G_BITWRT           equ     $9a
+_G_BITWRTBCK        equ     $9b
+_G_BITWRTENL        equ     $9c
 _SFTJIS             equ     $a0
 _JISSFT             equ     $a1
 _AKCONV             equ     $a2
@@ -184,15 +184,15 @@ _PAINT              equ     $bc
 _SYMBOL             equ     $bd
 _GETGRM             equ     $be
 _PUTGRM             equ     $bf
-_SP_INIT            equ     $c0         ; Turns on sprites.
-_SP_ON              equ     $c1         ; Make sprites visible.
-_SP_OFF             equ     $c2         ; Make sprites invisible.
-_SP_CGCLR           equ     $c3         ; Clear pattern pats PCG area.
-_SP_DEFCG           equ     $c4         ; Sets pattern pats size and data.
-_SP_GTPCG           equ     $c5         ; Get pattern pats data.
-_SP_REGST           equ     $c6         ; Sprite register data.
+_SP_INIT            equ     $c0
+_SP_ON              equ     $c1
+_SP_OFF             equ     $c2
+_SP_CGCLR           equ     $c3
+_SP_DEFCG           equ     $c4
+_SP_GTPCG           equ     $c5
+_SP_REGST           equ     $c6
 _SP_REGGT           equ     $c7
-_BGSCRLST           equ     $c8         ; Sets background and text page visibility.
+_BGSCRLST           equ     $c8
 _BGSCRLGT           equ     $c9
 _BGCTRLST           equ     $ca
 _BGCTRLGT           equ     $cb
@@ -281,6 +281,16 @@ _M_VOLFLT           equ     $4a
 _M_PANFLT           equ     $4b
 _M_VERSION          equ     $5e
 
+IOCS                macro
+                    ifne    \1<$80
+                        moveq   #\1,d0
+                    else
+                        move.l  #\1,d0
+                    endc
+                    trap    #TRAP_IOSCALL
+                    endm
+
+; ------------------------------------------------------------------
 TRAP_USER           equ     0
 TRAP_BREAKPOINT     equ     8
 TRAP_RESETPOWEROFF  equ     10
@@ -300,6 +310,7 @@ OPM                 macro
                     trap    #TRAP_IOSCALL
                     endm
 
+; ------------------------------------------------------------------
 _SCSIDRV            equ     $f5
 
 _S_RESET            equ     $00
@@ -336,6 +347,7 @@ SCSI                macro
                     trap    #TRAP_IOSCALL
                     endm
 
+; ------------------------------------------------------------------
 _RSDRV              equ     $f1
 
 E_SET232C           equ     $30
@@ -355,13 +367,5 @@ ERS                 macro
                     trap    #TRAP_IOSCALL
                     endm
 
-_MUSICDRV           equ     $f3         ; MUSICDRV control
-
-IOCS                macro
-                    ifne    \1<$80
-                        moveq   #\1,d0
-                    else
-                        move.l  #\1,d0
-                    endc
-                    trap    #TRAP_IOSCALL
-                    endm
+; ------------------------------------------------------------------
+_MUSICDRV           equ     $f3

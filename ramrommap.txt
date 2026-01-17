@@ -12,6 +12,7 @@
 
 ------------------------------------------------------------------
 
+
 A memory map of the I/O ports and ROM area is provided.
 
 It does not include the protocols for each port.
@@ -27,22 +28,25 @@ Other versions of ROMs exist, but are not included in this data.
     [12]    ROM v1.2    ROMVER=$12_911024(X68000 CompactXVI)
     [13]    ROM v1.3    ROMVER=$13_921127(X68030)
 
+
 ------------------------------------------------------------------
 Graphics VRAM
-
+------------------------------------------------------------------
 00C00000-00DFFFFF       Graphics VRAM
+
 
 ------------------------------------------------------------------
 Text VRAM
-
+------------------------------------------------------------------
 00E00000-00E1FFFF       Text Plane 0
 00E20000-00E3FFFF       Text Plane 1
 00E40000-00E5FFFF       Text Plane 2
 00E60000-00E7FFFF       Text Plane 3
 
+
 ------------------------------------------------------------------
 CRTC registers
-
+------------------------------------------------------------------
 00E80000    .w          CRTC R00 Horizontal Total
 00E80002    .w          CRTC R01 Horizontal sync end position
 00E80004    .w          CRTC R02 Horizontal display start position
@@ -97,16 +101,18 @@ CRTC registers
                             bit 1   Graphics screen fast clear (1=running)
                             bit 3   Text raster copy (1=running)
 
+
 ------------------------------------------------------------------
 Palette Register
-
+------------------------------------------------------------------
 00E82000    .w[256]     Graphics palette
 00E82200    .w[16]      Text palette/Sprite palette block 0
 00E82220    .w[240]     Sprite palette blocks 1-15
 
+
 ------------------------------------------------------------------
 Video controller registers
-
+------------------------------------------------------------------
 00E82400    .w          Memory mode
 
                             bit 0-1 Number of graphic colors (0=16 colors, 1=256 colors, 3=65536 colors)
@@ -151,9 +157,10 @@ Video controller registers
                             bit 14  AH: Translucent between graphics and text
                             bit 15  Ys: Forces the CMPCUT (Ys) signal to H
 
+
 ------------------------------------------------------------------
 DMA Controller Registers
-
+------------------------------------------------------------------
 00E84000    .b[64]      DMAC channel 0 (floppy disk)
 
         00E84000    .b  DMAC0 Channel Status Register
@@ -258,9 +265,10 @@ DMA Controller Registers
         00E840F9    .b  DMAC3 Base Function Code Register
         00E840FF    .b  DMAC3 General Control Register
 
+
 ------------------------------------------------------------------
 Supervisor area configuration
-
+------------------------------------------------------------------
 00E86001    .b          Supervisor area configuration
                         Value Supervisor Protection Range
 
@@ -270,9 +278,10 @@ Supervisor area configuration
                             $FF 00000000-001FDFFF
                             $FF 00000000-001FFFFF
 
+
 ------------------------------------------------------------------
 Multifunction peripherals
-
+------------------------------------------------------------------
 00E88000                MFP Base Address
 00E88001    .b          MFP GPIP Data Register
 
@@ -439,7 +448,7 @@ Multifunction peripherals
 
 ------------------------------------------------------------------
 Real-time clock
-
+------------------------------------------------------------------
 00E8A000                RTC Base Address
 00E8A001    .b          RTC0 1 second counter
                         RTC0 1 second counter
@@ -509,15 +518,17 @@ Real-time clock
                                 0   ON
                                 1   OFF
 
+
 ------------------------------------------------------------------
 Printer port
-
+------------------------------------------------------------------
 00E8C001    .b          Printer Data
 00E8C003    .b          Printer Strobe
 
+
 ------------------------------------------------------------------
 System ports
-
+------------------------------------------------------------------
 00E8E001    .b              bit 0-3 I/O contrast adjustment (0=darkest, Åc, 15=brightest)
 00E8E003    .b              bit 0   3DR I/O Shutter Right (0=OPEN, 1=CLOSE)
                             bit 1   3DL I/O shutter left (0=OPEN, 1=CLOSE)
@@ -569,18 +580,20 @@ System ports
                                 - When using Human68k, set bits 2 and 3 of $00E8A01F to 1 and 1.
                                 - When the alarm does not activate, set bit 2 of $00E8A01B to 0.
 
+
 ------------------------------------------------------------------
 FM sound register
-
+------------------------------------------------------------------
 00E90001    .b          FM sound source address port
 00E90003    .b          FM sound source data port
                         OUT:ADPCM clock switching
 
                             bit 0-2 WAVE FORM
 
+
 ------------------------------------------------------------------
 ADPCM Register
-
+------------------------------------------------------------------
 00E92001    .b          IN:ADPCM Status Register
 
                             bit 7   R/P
@@ -593,31 +606,35 @@ ADPCM Register
 
 00E92003    .b          ADPCM Data Register
 
+
 ------------------------------------------------------------------
 Floppy disk controller
-
+------------------------------------------------------------------
 00E94001    .b          FDC Status Register
 00E94003    .b          FDC Data Register
 00E94005    .b          IN FDC drive status
                         OUT FDC drive control
 00E94007    .b          FDC access drive select, 2HD/2DD or 2D switching
 
+
 ------------------------------------------------------------------
 SASI hard Disk Controller
-
+------------------------------------------------------------------
 00E96001    .b          HD data
 00E96003    .b          IN: Status / OUT: Select, Reset
 00E96005    .b          Controller Board Reset
 00E96007    .b          Select Set
 
+
 ------------------------------------------------------------------
 Built-in SCSI port
-
+------------------------------------------------------------------
 00E96020                Built-in SCSI port base address
+
 
 ------------------------------------------------------------------
 Serial Communication Controller
-
+------------------------------------------------------------------
 00E98000    .w          SCC Command Port B
 00E98001    .b          SCC Command Port B (lower byte)
 00E98002    .w          SCC Data Port B
@@ -627,9 +644,10 @@ Serial Communication Controller
 00E98006    .w          SCC Data Port A
 00E98007    .b          SCC Data Port A (lower byte)
 
+
 ------------------------------------------------------------------
 8255 ports and registers
-
+------------------------------------------------------------------
 00E9A001    .b          Joystick 0 (8255 Port A)
 00E9A003    .b          Joystick 1 (8255 Port B)
 00E9A005    .b          OUT: ADPCM output, sampling frequency switching register (8255 port C)
@@ -639,9 +657,10 @@ Serial Communication Controller
 
 00E9A007    .b          8255 Control Word Register
 
+
 ------------------------------------------------------------------
 I/O interrupt related registers
-
+------------------------------------------------------------------
 00E9C001    .b          IN: Printer busy
 
                             bit 0   Printer ready interrupt mask
@@ -653,9 +672,10 @@ I/O interrupt related registers
 
 00E9C003    .b          FDC, FDD, SASI HD, printer interrupt vector
 
+
 ------------------------------------------------------------------
 Coprocessor
-
+------------------------------------------------------------------
 00E9E000                Coprocessor 1
 
                             00  .w  Response Register
@@ -674,9 +694,10 @@ Coprocessor
 
                             (same as coprocessor 1)
 
+
 ------------------------------------------------------------------
 External scsi
-
+------------------------------------------------------------------
 00EA0000                External SCSI Base Address
 00EA0001    .b          I/O BDID(Bus Device ID))
 00EA0003    .b          I/O SCTL(SPC Control)
@@ -696,17 +717,19 @@ External scsi
 
 00EA0044    .b[6]       'SCSIEX'    Identification string
 
+
 ------------------------------------------------------------------
 Mach-2
-
+------------------------------------------------------------------
 00EA0000-00EA001F       Unused
 00EA0020-00EA7FFF       ROM
 00EA007E-00EA007F       DMAC
 00EA0080-00EA009F       SPC
 
+
 ------------------------------------------------------------------
 Internal SCSI
-
+------------------------------------------------------------------
 00EA6000                Internal SCSI Base Address
 00EA6001    .b          I/O BDID(Bus Device ID))
 00EA6003    .b          I/O SCTL(SPC Control)
@@ -726,9 +749,10 @@ Internal SCSI
 
 00EA6044    .b[6]       'SCSIIN'    Identification string
 
+
 ------------------------------------------------------------------
 Supervisor area settings
-
+------------------------------------------------------------------
                         Bit Supervisor Protection Area
 
                             0   User Access Permissions
@@ -775,9 +799,10 @@ Supervisor area settings
                             bit 6   $00B80000-$00BBFFFF
                             bit 7   $00BC0000-$00BFFFFF
 
+
 ------------------------------------------------------------------
 Sprite registers
-
+------------------------------------------------------------------
 00EB0000    .w[4*128]   Sprite 0-127 Registers
 
                             00  .w  X coordinate
@@ -785,9 +810,10 @@ Sprite registers
                             04  .w  Control
                             06  .w  Priority
 
+
 ------------------------------------------------------------------
 Sprite controller
-
+------------------------------------------------------------------
 00EB0800    .w          Background 0 X coordinate
 00EB0802    .w          Background 0 Y coordinate
 00EB0804    .w          Background 1 X coordinate
@@ -798,25 +824,29 @@ Sprite controller
 00EB080E    .w          Vertical display
 00EB0810    .w          Frequency
 
+
 ------------------------------------------------------------------
 Sprite PCG Area
-
+------------------------------------------------------------------
 00EB8000-00EBBFFF       Sprite 0-127 PCG Area
+
 
 ------------------------------------------------------------------
 Sprite Text Area
-
+------------------------------------------------------------------
 00EBC000-00EBDFFF       Sprite Text Area 0
 00EBE000-00EBFFFF       Sprite Text Area 1
 
+
 ------------------------------------------------------------------
 User I/O area
-
+------------------------------------------------------------------
 00EC0000-00ECFFFF       User I/O area
+
 
 ------------------------------------------------------------------
 SRAM contents
-
+------------------------------------------------------------------
 00ED0000    .b[8]           'Çw68000',$57   Memory Check Data
 00ED0008    .l  [10]        $00100000       Memory limit address + 1
                 [11,12]     $00200000
@@ -1058,9 +1088,10 @@ SRAM contents
 00ED0100                                    Top of SRAM program
 00ED0400-00ED3FFF                           SRAM user area, SRAMDISK area
 
+
 ------------------------------------------------------------------
 ROM fonts
-
+------------------------------------------------------------------
 00F00000-00F05DFF           16x16 dot font ($21xx-$28xx, 1st row-8th row, 752 non-kanji characters)
 00F05E00-00F1D5FF           16 x 16 dot font ($30xx-$4Fxx, 16 wards - 47 wards, 3008 characters of level 1 kanji)
 00F1D600-00F388BF           16 x 16 dot font ($50xx-$74xx, 48 wards - 84 wards, 3478 characters of Level 2 Kanji)
@@ -1078,15 +1109,16 @@ ROM fonts
 00FBF3B0-00FBF3FF           [13] Empty (filled with $00)
 00FBF400-00FBFFFF           [13] 6x12 dot font ($00-$FF, 256 characters, $FE-$FF are blank)
 
+
 ------------------------------------------------------------------
 Ghosting other ROM areas
-
+------------------------------------------------------------------
 00FC0000-00FDFFFF           [10] Ghost of 00FE0000-00FF0000
 
 
 ------------------------------------------------------------------
 Internal SCSI
-
+------------------------------------------------------------------
 00FC0000    .l[8]           [11,12,13] Internal SCSI boot handle (corresponding to SCSI-ID 0-7)
 00FC0020    .l              [11,12,13] $00FC0030 Handle to the internal SCSI initialization routine
 00FC0024    .b[6]           [11,12,13] 'SCSIIN' Internal SCSI presence identification string
@@ -1098,33 +1130,38 @@ Internal SCSI
 
 00FC002A-00FC01FF           [13] Empty (filled with $FF)
 
+
 ------------------------------------------------------------------
 ROM Human
-
+------------------------------------------------------------------
 00FC0200                    [13] The beginning of ROM Human (Z format executable file)
 00FC021C-00FCDE27           [13] ROM Human body (v2.15)
 
+
 ------------------------------------------------------------------
 ROM Float
-
+------------------------------------------------------------------
 00FCE000-00FD364D           [13] ROM Float main body (v2.02)
+
 
 ------------------------------------------------------------------
 ROM debugger
-
+------------------------------------------------------------------
 00FE0000-00FE4E05           [10,11,12] ROM Debugger (v1.0)
 00FD3800-00FE3E33           [13] ROM Debugger (v2.32)
 
+
 ------------------------------------------------------------------
 Free ROM space
-
+------------------------------------------------------------------
 00FE4E06-00FE4EFF           [10,11,12] Free space (filled with $00)
 00FE4F00-00FE4FBF           [10,11,12] Free space (filled with $FF)
 00FE3E34-00FEFFFF           [13] Free space (filled with $FF)
 
+
 ------------------------------------------------------------------
 ROM Human
-
+------------------------------------------------------------------
 00FE4FC0-00FE4FE9           [10,11,12] ROM Human transfer, execution routine
 00FE4FEA-00FE4FFB           [10,11,12] Free space (filled with $00)
 00FE4FFC    .l              [10,11,12] ROM Human Transfer, Handle to Execution Routine ($00FE4FC0)
@@ -1132,37 +1169,41 @@ ROM Human
 00FEF97A-00FEF9BF           [10,11,12] Free space (filled with $00)
 00FEF9C0-00FEFFFF           [10,11,12] Free space (filled with $FF)
 
+
 ------------------------------------------------------------------
 IPL/IOCS ROM
-
+------------------------------------------------------------------
 00FF0000-00FFD017           [10] IPL/IOCS
 00FF0000-00FFD343           [11] IPL/IOCS
 00FF0000-00FFD45D           [12] IPL/IOCS
 00FF0000-00FFED6D           [13] IPL/IOCS
 
+
 ------------------------------------------------------------------
 ROM fonts
-
+------------------------------------------------------------------
 00FFD018-00FFDBFF           [10] 6x12 dot font ($00-$FD, 254 characters)
 00FFD344-00FFDF2B           [11] 6x12 dot font ($00-$FD, 254 characters)
 00FFD45E-00FFE045           [12] 6x12 dot font ($00-$FD, 254 characters)
 
+
 ------------------------------------------------------------------
 Free ROM space
-
+------------------------------------------------------------------
 00FFDF2C-00FFFFFF           [11] Free space (filled with $FF)
 00FFE046-00FFFFFF           [12] Free space (filled with $FF)
 00FFED6E-00FFFFFF           [13] Free space (filled with $FF)
 
+
 ------------------------------------------------------------------
 ROM disk
-
+------------------------------------------------------------------
 00FFDC00-00FFFFFF           [10]    ROM disk area (9KB)
                                     Contains CONFIG.SYS, PRNDRV.SYS, SPEED.X, and TERM.X.*
                                     ROM Human starts up as a terminal.
 00FFDC00-00FFFFFF           [11]    ROM disk space (9KB, unusable)
 00FFF400-00FFFFFF           [12,13] ROM disk space (3KB, unusable)
 
-------------------------------------------------------------------
 
+------------------------------------------------------------------
 (EOF)

@@ -12,6 +12,7 @@
 
 ------------------------------------------------------------------
 
+
 This time, we provide a quick reference for all DOS calls (including unpublished ones) provided by Human68k version 3.02.
 
 In particular, the unpublished parts have been analyzed and summarized by the author, 
@@ -21,7 +22,6 @@ The call names of unpublished DOS calls have been chosen to match existing names
 but there are also a few that have been arbitrarily named by the author.
 
 This material is provided without warranty.
-
 
 
 References
@@ -2419,7 +2419,6 @@ The default is a no-op routine.
 ------------------------------------------------------------------
 
 
-
 DOS call list (in code order)
 ------------------------------------------------------------------
 Number Call name    Function overview
@@ -2540,7 +2539,6 @@ $FFFD _SEND_PR      Wake up a thread
 $FFFE _TIME_PR      Get the current timer counter value
 $FFFF _CHANGE_PR    Switch to the next thread
 ------------------------------------------------------------------
-
 
 
 DOS Call list (by call name)
@@ -2677,12 +2675,12 @@ $FF40 _WRITE        Write the specified size of data to a handler
 ------------------------------------------------------------------
 
 
-
+------------------------------------------------------------------
 References
 
 Programmer's Manual, 
 Sharp X68000 Data Book, POPCOM Editorial Department, Shogakukan
 
 
-
+------------------------------------------------------------------
 (EOF)

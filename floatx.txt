@@ -12,13 +12,13 @@
 
 ------------------------------------------------------------------
 
+
 This article provides a simple reference for all $FExx function calls provided by FLOATn.X (including unpublished ones).
 
 Please note that the unpublished parts have been analyzed and compiled by the author,
 so please do not contact Sharp or Hudson regarding them.
 
 This material is provided without warranty.
-
 
 
 Reference
@@ -1369,7 +1369,6 @@ $FEFF __FEVECS      Adding or changing floating-point operations
 ------------------------------------------------------------------
 
 
-
 $FExx Function Call List (in numerical order)
 ------------------------------------------------------------------
 $FE00 __LMUL        Multiplication (signed long * signed long)
@@ -1533,7 +1532,6 @@ $FEFC __CDDEC       Subtract 1 (double-1)
 $FEFD __CFDEC       Subtract 1 (single-1)
 $FEFE __FEVARG      Get the type of math device driver
 $FEFF __FEVECS      Adding or changing floating-point operations
-
 
 
 $FExx Function Call List (by name)
@@ -1710,11 +1708,11 @@ $FE20 __VAL         String to floating-point number (double)
 ------------------------------------------------------------------
 
 
-
+------------------------------------------------------------------
 References
 
 SHARP CZ-6BP1 Numerical Arithmetic Processor Board Instruction Manual
 
 
-
+------------------------------------------------------------------
 (EOF)

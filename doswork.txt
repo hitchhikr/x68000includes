@@ -12,6 +12,7 @@
 
 ------------------------------------------------------------------
 
+
 This time, we will introduce the work area and various tables of Human68k version 3.0x,
 as well as materials related to special device drivers.
 
@@ -29,9 +30,7 @@ I would like each person to organize and use it as they see fit.
 
 
 ------------------------------------------------------------------
-
-    DOS work area (1C00 to 1FFF)
-
+DOS work area (1C00 to 1FFF)
 ------------------------------------------------------------------
 
 1C00.w  .l                  End address of memory space that can be _MALLOCed + 1
@@ -123,9 +122,7 @@ I would like each person to organize and use it as they see fit.
 
 
 ------------------------------------------------------------------
-
-    Device Type
-
+Device Type
 ------------------------------------------------------------------
 
 bit 15                      0 = Block device, special device
@@ -151,9 +148,7 @@ bit 0                       1 = Standard input
 
 
 ------------------------------------------------------------------
-
-    Character Device Driver Command Codes
-
+Character Device Driver Command Codes
 ------------------------------------------------------------------
 
 00                          Initialization
@@ -172,9 +167,7 @@ bit 0                       1 = Standard input
 
 
 ------------------------------------------------------------------
-
-    Block Device Driver Command Codes
-
+Block Device Driver Command Codes
 ------------------------------------------------------------------
 
 00                          Initialization
@@ -193,9 +186,7 @@ bit 0                       1 = Standard input
 
 
 ------------------------------------------------------------------
-
-    Special Device Driver Command Codes
-
+Special Device Driver Command Codes
 ------------------------------------------------------------------
 
 40                          initialize
@@ -228,9 +219,7 @@ bit 0                       1 = Standard input
 
 
 ------------------------------------------------------------------
-
-    Request header
-
+Request header
 ------------------------------------------------------------------
 
 0000    .b  $1A             Constant
@@ -248,9 +237,7 @@ bit 0                       1 = Standard input
 
 
 ------------------------------------------------------------------
-
-    Device information
-
+Device information
 ------------------------------------------------------------------
 
 bit 15                      0 = Block devices, special devices
@@ -280,9 +267,7 @@ bit 0                       1 = Standard input
 
 
 ------------------------------------------------------------------
-
-    Device header
-
+Device header
 ------------------------------------------------------------------
 
 0000    .l                  Pointer to the next device driver (-1 = end)
@@ -295,9 +280,7 @@ bit 0                       1 = Standard input
 
 
 ------------------------------------------------------------------
-
-    Media byte
-
+Media byte
 ------------------------------------------------------------------
 
 EB                          2HS (9scdrv)
@@ -317,9 +300,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Directory entry
-
+Directory entry
 ------------------------------------------------------------------
 
 0000    .b                  $00 = Indicates the end of a directory entry
@@ -349,9 +330,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    FCB table
-
+FCB table
 ------------------------------------------------------------------
 
 0000    .b                  Number of references to the FCB table:
@@ -416,9 +395,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Standard handler
-
+Standard handler
 ------------------------------------------------------------------
 
 0                           CON standard input
@@ -432,9 +409,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Buffers
-
+Buffers
 ------------------------------------------------------------------
 
 0000    .l                  Address of the next buffer
@@ -449,9 +424,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Drive management table
-
+Drive management table
 ------------------------------------------------------------------
 
 0000    .b[2]   'A:'        Internal drive name at startup
@@ -470,9 +443,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    BPB table
-
+BPB table
 ------------------------------------------------------------------
 
 0000    .w                  Bytes per sector
@@ -493,9 +464,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    DPB table
-
+DPB table
 ------------------------------------------------------------------
 
 0000    .b                  Internal drive number (0=A:)
@@ -522,9 +491,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Internal DPB table
-
+Internal DPB table
 ------------------------------------------------------------------
 
 0000    .b                  Internal drive number at startup (0=A:)
@@ -567,9 +534,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Share management table
-
+Share management table
 ------------------------------------------------------------------
 
 0000    .b                  Number of times it has been opened simultaneously
@@ -595,9 +560,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Pathname format
-
+Pathname format
 ------------------------------------------------------------------
 
 0000    .b
@@ -608,9 +571,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    File name information
-
+File name information
 ------------------------------------------------------------------
 
 0000    .b                  Path length
@@ -624,9 +585,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    File name in _NAMESTS format
-
+File name in _NAMESTS format
 ------------------------------------------------------------------
 
 0000    .b                  Flags or path length
@@ -640,9 +599,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    _FILES buffer
-
+_FILES buffer
 ------------------------------------------------------------------
 
 0000    .b                  Attributes to search for
@@ -673,9 +630,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    _NAMECK buffer
-
+_NAMECK buffer
 ------------------------------------------------------------------
 
 0000    .b[2]   'A:'        Drive Name
@@ -687,9 +642,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Memory management table
-
+Memory management table
 ------------------------------------------------------------------
 
 0000    .l                  Address of the previous memory management table (0 if none)
@@ -705,9 +658,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Process management table
-
+Process management table
 ------------------------------------------------------------------
 
 0010    .l                  Address of the environment area
@@ -742,9 +693,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Environment area
-
+Environment area
 ------------------------------------------------------------------
 
 0000    .l                  Size of the environment area (from the beginning)
@@ -752,9 +701,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Thread management table
-
+Thread management table
 ------------------------------------------------------------------
 
 0000    .l                  Next thread management table address
@@ -795,9 +742,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    Inter-thread communication buffers
-
+Inter-thread communication buffers
 ------------------------------------------------------------------
 
 0000    .l                  Buffer Size
@@ -809,9 +754,7 @@ FE                          2HD 1.2MB
 
 
 ------------------------------------------------------------------
-
-    x format executable file
-
+x format executable file
 ------------------------------------------------------------------
 
 Header.b[64]
@@ -827,9 +770,7 @@ Module Table
 
 
 ------------------------------------------------------------------
-
-    x format executable file header
-
+x format executable file header
 ------------------------------------------------------------------
 
 0000    .w  'HU'            Identification Code
@@ -852,9 +793,7 @@ Module Table
 
 
 ------------------------------------------------------------------
-
-    x format executable file relocation table
-
+x format executable file relocation table
 ------------------------------------------------------------------
 
 Offset to next relocate position.w
@@ -868,9 +807,7 @@ Bit 0 of the offset is the size to relocate
 
 
 ------------------------------------------------------------------
-
-    x format executable module table
-
+x format executable module table
 ------------------------------------------------------------------
 
 0000    .b                  $05 = Indicates that the first byte of file name 1 is $E5
@@ -900,9 +837,7 @@ Bit 0 of the offset is the size to relocate
 
 
 ------------------------------------------------------------------
-
-    z format executable header
-
+z format executable header
 ------------------------------------------------------------------
 
 0000    .w  $601A           Identification Code
@@ -918,18 +853,14 @@ Bit 0 of the offset is the size to relocate
 
 
 ------------------------------------------------------------------
-
-    r format executable header
-
+r format executable header
 ------------------------------------------------------------------
 
 .r files have no header, no fixed address or relocation infos (so code must be PC relative).
 
 
 ------------------------------------------------------------------
-
-    DOS call error number
-
+DOS call error number
 ------------------------------------------------------------------
 
 FFFFFFFF    -1              Invalid function code
@@ -977,9 +908,7 @@ FFFFFFB0    -80             The file exists
 
 
 ------------------------------------------------------------------
-
-    Device error messages
-
+Device error messages
 ------------------------------------------------------------------
 
 0002                        A bus error occurred
@@ -1014,9 +943,7 @@ FE00Å-FEFF                  The calculation package is not registered.
 
 
 ------------------------------------------------------------------
-
-    DOS call List (by name)
-
+DOS call List (by name)
 ------------------------------------------------------------------
 
 _ALLCLOSE   FF1F
@@ -1133,9 +1060,7 @@ _WRITE      FF40
 
 
 ------------------------------------------------------------------
-
-    DOS call List (in numerical order)
-
+DOS call List (in numerical order)
 ------------------------------------------------------------------
 
 FF00        _EXIT
@@ -1259,9 +1184,7 @@ FFFF        _CHANGE_PR
 
 
 ------------------------------------------------------------------
-
-    Special device driver command reference
-
+Special device driver command reference
 ------------------------------------------------------------------
 
 40  initialize
@@ -1577,4 +1500,5 @@ FFFF        _CHANGE_PR
     0016.l  i   FCB table address
 
 
+------------------------------------------------------------------
 (EOF)

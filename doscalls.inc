@@ -1,6 +1,3 @@
-;
-; doscall.inc X68k XC Compiler v2.11 Copyright 1993 SHARP/Hudson
-;
 DOS                 macro
                     dc.w    \1
                     endm
@@ -13,7 +10,6 @@ TYPE_R              equ     1
 TYPE_Z              equ     2
 TYPE_X              equ     3
 
-_RAND               equ     $fe0e
 _EXIT               equ     $ff00
 _GETCHAR            equ     $ff01
 _PUTCHAR            equ     $ff02
@@ -29,7 +25,6 @@ _KEYSNS             equ     $ff0b
 _KFLUSH             equ     $ff0c
 _FFLUSH             equ     $ff0d
 _CHGDRV             equ     $ff0e
-_CHDRV              equ     $ff0e
 _DRVCTRL            equ     $ff0f
 _CONSNS             equ     $ff10
 _PRNSNS             equ     $ff11
@@ -39,7 +34,7 @@ _COUTSNS            equ     $ff13
 ;RESERVED           equ     $ff15
 ;RESERVED           equ     $ff16
 _FATCHK             equ     $ff17
-;RESERVED           equ     $ff18
+_HENDSP             equ     $ff18
 _CURDRV             equ     $ff19
 _GETSS              equ     $ff1a
 _FGETC              equ     $ff1b
@@ -94,29 +89,32 @@ _EXIT2              equ     $ff4c
 _WAIT               equ     $ff4d
 _FILES              equ     $ff4e
 _NFILES             equ     $ff4f
-_SETPDB             equ     $ff50
-_GETPDB             equ     $ff51
-_SETENV             equ     $ff52
-_GETENV             equ     $ff53
-_VERIFYG            equ     $ff54
-_COMMON             equ     $ff55
-_RENAME             equ     $ff56
-_FILEDATE           equ     $ff57
-_MALLOC2            equ     $ff58
-_MAKETMP            equ     $ff5a
-_NEWFILE            equ     $ff5b
-_LOCK               equ     $ff5c
-;RESERVED           equ     $ff5e
-_ASSIGN             equ     $ff5f
-_FFLUSH_SET         equ     $ff7a
-_OS_PATCH           equ     $ff7b
-_GET_FCB_ADR        equ     $ff7c
-_S_MALLOC           equ     $ff7d
-_S_MFREE            equ     $ff7e
-_S_PROCESS          equ     $ff7f
+_SETPDB             equ     $ff80
+_GETPDB             equ     $ff81
+_SETENV             equ     $ff82
+_GETENV             equ     $ff83
+_VERIFYG            equ     $ff84
+_COMMON             equ     $ff85
+_RENAME             equ     $ff86
+_FILEDATE           equ     $ff87
+_MALLOC2            equ     $ff88
+_MAKETMP            equ     $ff8a
+_NEWFILE            equ     $ff8b
+_LOCK               equ     $ff8c
+;RESERVED           equ     $ff8e
+_ASSIGN             equ     $ff8f
+_FFLUSMD            equ     $ffaa
+_OS_PATCH           equ     $ffab
+_GETFCB             equ     $ffac
+_S_MALLOC           equ     $ffad
+_S_MFREE            equ     $ffae
+_S_PROCESS          equ     $ffaf
+; ----
+; not calls
 _EXITVC             equ     $fff0
 _CTRLVC             equ     $fff1
 _ERRJVC             equ     $fff2
+; ----
 _DISKRED            equ     $fff3
 _DISKWRT            equ     $fff4
 _INDOSFLG           equ     $fff5
@@ -125,7 +123,7 @@ _BUS_ERR            equ     $fff7
 _OPEN_PR            equ     $fff8
 _KILL_PR            equ     $fff9
 _GET_PR             equ     $fffa
-_SUSPEND            equ     $fffb
+_SUSPEND_PR         equ     $fffb
 _SLEEP_PR           equ     $fffc
 _SEND_PR            equ     $fffd
 _TIME_PR            equ     $fffe
