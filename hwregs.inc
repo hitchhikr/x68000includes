@@ -1,5 +1,5 @@
 ; =================================================================================
-; X68000 Hardware registers constants and memory locations v1.1.
+; X68000 Hardware registers constants and memory locations v1.2.
 ; Painstakingly translated & typed by Franck 'hitchhikr' Charlet.
 ; =================================================================================
 

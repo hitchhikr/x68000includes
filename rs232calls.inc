@@ -14,6 +14,7 @@ E_VER232C           equ     $37
 E_PINP232C          equ     $38
 E_PSET232C          equ     $39
 
+; ------------------------------------------------------------------
 ERS                 MACRO
                     move.l  #\1 or (\2 shl 8),d2
                     moveq   #_RSDRV,d0

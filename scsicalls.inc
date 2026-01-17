@@ -27,6 +27,7 @@ _S_STARTSTOP        equ     $2F
 _S_REASSIGN         equ     $31
 _S_PAMEDIUM         equ     $32
 
+; ------------------------------------------------------------------
 SCSI                MACRO
                     IFNE    \1<$80
                         moveq   #\1,d1

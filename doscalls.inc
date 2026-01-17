@@ -128,6 +128,7 @@ _SEND_PR            equ     $FFFD
 _TIME_PR            equ     $FFFE
 _CHANGE_PR          equ     $FFFF
 
+; ------------------------------------------------------------------
 DOS                 MACRO
                     dc.w    \1
                     ENDM
