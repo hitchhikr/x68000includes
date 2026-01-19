@@ -226,7 +226,7 @@ IOCS                MACRO
                     IFNE    \1<$80
                         moveq   #\1,d0
                     ELSE
-                        move.l  #\1,d0
+                        moveq   #-($100-\1),d0
                     ENDC
                     trap    #TRAP_IOSCALL
                     ENDM

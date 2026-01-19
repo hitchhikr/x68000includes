@@ -73,11 +73,7 @@ _M_VERSION          equ     $5E
 
 ; ------------------------------------------------------------------
 OPM                 MACRO
-                    IF      \1<$80
-                        moveq   #\1,d1
-                    ELSE
-                        move.l  #\1,d1
-                    ENDC
-                    moveq   #_OPMDRV,d0
+                    moveq   #\1,d1
+                    moveq   #-($100-_OPMDRV),d0
                     trap    #TRAP_IOSCALL
                     ENDM

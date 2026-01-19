@@ -88,7 +88,7 @@ $FE08 __IMUL        Multiplication (unsigned long * unsigned long > unsigned qua
 <d0.l:Multiplicand (unsigned long)
 <d1.l:Multiplier (unsigned long)
 
->d0d1.q:d0*d1(unsigned quad)
+>d0/d1.q:d0*d1(unsigned quad)
 ------------------------------------------------------------------
 $FE09 __IDIV        Division (unsigned long/unsigned long)
 
@@ -201,11 +201,11 @@ $FE1A __LTOD        Integer (signed long) > Floating point number (double)
 
 <d0.l:integer (signed long)
 
->d0d1.d:Floating point number (double)
+>d0/d1.d:Floating point number (double)
 ------------------------------------------------------------------
 $FE1B __DTOL        Floating point number (double) > Integer (signed long)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
 >d0.l:integer (signed long)
 
@@ -229,11 +229,11 @@ $FE1E __FTOD        Floating point number (single) > Floating point number (doub
 
 <d0.s:Floating point number (single)
 
->d0d1.d:Floating point number (double)
+>d0/d1.d:Floating point number (double)
 ------------------------------------------------------------------
 $FE1F __DTOF        Floating point number (double) > Floating point number (single)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
 >d0.s:Floating point number (single)
 
@@ -248,7 +248,7 @@ $FE20 __VAL         String to floating-point number (double)
         Octal number (&O~)
         Binary number (&B~)
 
->d0d1.d:Floating point number (double)
+>d0/d1.d:Floating point number (double)
 
 >d2.w:(Decimal) Integer Flag
 
@@ -263,7 +263,7 @@ $FE20 __VAL         String to floating-point number (double)
 ------------------------------------------------------------------
 $FE21 __USING       Floating point number (double) > String (decorated)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 <d2.l:Number of digits in the integer part (negative numbers are not allowed,
       the number of digits including the negative sign unless specified in the attribute,
       and any digits that do not fit will overflow unless the exponential format is specified)
@@ -295,7 +295,7 @@ $FE22 __STOD        String representing a decimal number > Floating point number
 
 <(a0):A string representing a decimal number (ASCIIZ)
 
->d0d1.d:Floating point number (double)
+>d0/d1.d:Floating point number (double)
 >d2.w:(Decimal) Integer Flag
 
         0   Cannot be represented as an integer (signed long)
@@ -309,7 +309,7 @@ $FE22 __STOD        String representing a decimal number > Floating point number
 ------------------------------------------------------------------
 $FE23 __DTOS        Floating point number (double) > String representing a decimal number
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 <a0.l:The starting address of the buffer
 
 >a0.l:0 position at the end of the string
@@ -317,7 +317,7 @@ $FE23 __DTOS        Floating point number (double) > String representing a decim
 ------------------------------------------------------------------
 $FE24 __ECVT        Floating point number (double) > String representing a decimal number (specify the total number of digits)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 <d2.b:Total number of digits
 <a0.l:The starting address of the buffer
 
@@ -328,7 +328,7 @@ $FE24 __ECVT        Floating point number (double) > String representing a decim
 ------------------------------------------------------------------
 $FE25 __FCVT        Floating point number (double) > String representing a decimal number (specify the number of decimal places)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 <d2.b:Decimal places
 <a0.l:The starting address of the buffer
 
@@ -344,7 +344,7 @@ it will become a null string. If it is 0, it will become 0.xxxx*10^1.
 ------------------------------------------------------------------
 $FE26 __GCVT        Floating point number (double) > String representing a decimal number (specify the total number of digits)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 <d2.b:Total number of digits (excluding signs and decimal points, but including 0. when the number is 0.0xxx)
 <a0.l:The starting address of the buffer
 
@@ -357,62 +357,62 @@ If the value cannot be expressed in the specified number of digits, it is conver
 ------------------------------------------------------------------
 $FE28 __DTST        Comparison with 0 (double-0)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->z-flag:eq=(d0d1==0),ne=(d0d1!=0)
->n-flag:mi=(d0d1<0),pl=(d0d1>=0)
+>z-flag:eq=(d0/d1==0),ne=(d0/d1!=0)
+>n-flag:mi=(d0/d1<0),pl=(d0/d1>=0)
 ------------------------------------------------------------------
 $FE29 __DCMP        Comparison (double-double)
 
-<d0d1.d:Comparable number (double)
-<d2d3.d:Number of comparisons (double)
+<d0/d1.d:Comparable number (double)
+<d2/d3.d:Number of comparisons (double)
 
->n-flag:mi=(d0d1<d2d3),pl=(d0d1>=d2d3)
->z-flag:eq=(d0d1==d2d3),ne=(d0d1!=d2d3)
->c-flag:cs=(d0d1<d2d3),cc=(d0d1>=d2d3)
+>n-flag:mi=(d0/d1<d2/d3),pl=(d0/d1>=d2/d3)
+>z-flag:eq=(d0/d1==d2/d3),ne=(d0/d1!=d2/d3)
+>c-flag:cs=(d0/d1<d2/d3),cc=(d0/d1>=d2/d3)
 ------------------------------------------------------------------
 $FE2A __DNEG        Negated (-double)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:-d0d1
+>d0/d1.d:-d0/d1
 ------------------------------------------------------------------
 $FE2B __DADD        Addition (double+double)
 
-<d0d1.d:Addendum (double)
-<d2d3.d:Addend (double)
+<d0/d1.d:Addendum (double)
+<d2/d3.d:Addend (double)
 
->d0d1.d:d0d1+d2d3
+>d0/d1.d:d0/d1+d2/d3
 
 >c-flag:cs=Error
 >v-flag:(cs)vs = overflow, (cs)vc = underflow
 ------------------------------------------------------------------
 $FE2C __DSUB        Subtraction (double-double)
 
-<d0d1.d:subtractable number (double)
-<d2d3.d:Subtraction number (double)
+<d0/d1.d:subtractable number (double)
+<d2/d3.d:Subtraction number (double)
 
->d0d1.d:d0d1-d2d3
+>d0/d1.d:d0/d1-d2/d3
 
 >c-flag:cs=Error
 >v-flag:(cs)vs = overflow, (cs)vc = underflow
 ------------------------------------------------------------------
 $FE2D __DMUL        Multiplication (double*double)
 
-<d0d1.d:Multiplicand (double)
-<d2d3.d:Multiplier (double)
+<d0/d1.d:Multiplicand (double)
+<d2/d3.d:Multiplier (double)
 
->d0d1.d:d0d1*d2d3
+>d0/d1.d:d0/d1*d2/d3
 
 >c-flag:cs=Error
 >v-flag:(cs)vs = overflow, (cs)vc = underflow
 ------------------------------------------------------------------
 $FE2E __DDIV        Division (double/double)
 
-<d0d1.d:Dividend (double)
-<d2d3.d:Divisor (double)
+<d0/d1.d:Dividend (double)
+<d2/d3.d:Divisor (double)
 
->d0d1.d:d0d1/d2d3
+>d0/d1.d:d0/d1/d2/d3
 
 >c-flag:cs=Error
 >z-flag:(cs)eq=Divisor is 0
@@ -420,10 +420,10 @@ $FE2E __DDIV        Division (double/double)
 ------------------------------------------------------------------
 $FE2F __DMOD        Modulus (double/double)
 
-<d0d1.d:Dividend (double)
-<d2d3.d:Divisor (double)
+<d0/d1.d:Dividend (double)
+<d2/d3.d:Divisor (double)
 
->d0d1.d:d0d1/d2d3(Remainder)
+>d0/d1.d:d0/d1/d2/d3(Remainder)
 
 >c-flag:cs=Error
 >z-flag:(cs)eq=Divisor is 0
@@ -431,39 +431,39 @@ $FE2F __DMOD        Modulus (double/double)
 ------------------------------------------------------------------
 $FE30 __DABS        Absolute value (abs(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:abs(d0d1)
+>d0/d1.d:abs(d0/d1)
 ------------------------------------------------------------------
 $FE31 __DCEIL       The smallest integer greater than or equal to (ceil(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:ceil(d0d1)
+>d0/d1.d:ceil(d0/d1)
 ------------------------------------------------------------------
 $FE32 __DFIX        Integer part (fix(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:fix(d0d1)
+>d0/d1.d:fix(d0/d1)
 ------------------------------------------------------------------
 $FE33 __DFLOOR      The largest integer less than or equal to (floor(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:floor(d0d1)
+>d0/d1.d:floor(d0/d1)
 ------------------------------------------------------------------
 $FE34 __DFRAC       Decimal part (frac(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:frac(d0d1)
+>d0/d1.d:frac(d0/d1)
 ------------------------------------------------------------------
 $FE35 __DSGN        Sign function (sgn(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:sgn(d0d1)
+>d0/d1.d:sgn(d0/d1)
 
         +1 if positive
         0 if 0
@@ -471,195 +471,195 @@ $FE35 __DSGN        Sign function (sgn(double))
 ------------------------------------------------------------------
 $FE36 __SIN         Sine (sin(double))
 
-<d0d1.d:Floating point number (radian, double)
+<d0/d1.d:Floating point number (radian, double)
 
->d0d1.d:sin(d0d1)
+>d0/d1.d:sin(d0/d1)
 ------------------------------------------------------------------
 $FE37 __COS         Cosine (cos(double))
 
-<d0d1.d:Floating point number (radian, double)
+<d0/d1.d:Floating point number (radian, double)
 
->d0d1.d:cos(d0d1)
+>d0/d1.d:cos(d0/d1)
 ------------------------------------------------------------------
 $FE38 __TAN         Tangent (tan(double))
 
-<d0d1.d:Floating point number (radian, double)
+<d0/d1.d:Floating point number (radian, double)
 
->d0d1.d:tan(d0d1)
+>d0/d1.d:tan(d0/d1)
 
 >c-flag:cs=Error(argument is ((2n+1)/2)ƒÎ(n: integer))
 ------------------------------------------------------------------
 $FE39 __ATAN        Arc tangent (atan(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:atan(d0d1)(radians)
+>d0/d1.d:atan(d0/d1)(radians)
 ------------------------------------------------------------------
 $FE3A __LOG         Natural logarithm (log(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:log(d0d1)
+>d0/d1.d:log(d0/d1)
 
->c-flag:cs=Error (d0d1<=0)
->z-flag:(cs)eq=(d0d1==0),(cs)ne=(d0d1<0)
+>c-flag:cs=Error (d0/d1<=0)
+>z-flag:(cs)eq=(d0/d1==0),(cs)ne=(d0/d1<0)
 ------------------------------------------------------------------
 $FE3B __EXP         Exponential function (exp(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:exp(d0d1)
+>d0/d1.d:exp(d0/d1)
 
 >c-flag:cs=Error(Overflow)
 ------------------------------------------------------------------
 $FE3C __SQR         Square root(sqrt(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:sqrt(d0d1)
+>d0/d1.d:sqrt(d0/d1)
 
->c-flag:cs=Error (d0d1<0)
+>c-flag:cs=Error (d0/d1<0)
 ------------------------------------------------------------------
 $FE3D __PI      Pi (pi())
 
->d0d1.d:pi()
+>d0/d1.d:pi()
 ------------------------------------------------------------------
 $FE3E __NPI         Product of pi (npi(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:npi(d0d1)
+>d0/d1.d:npi(d0/d1)
 
 >c-flag:cs=Error(Overflow)
 ------------------------------------------------------------------
 $FE3F __POWER       Power(double^double)
 
-<d0d1.d:exponent (double)
-<d2d3.d:Exponent (double)
+<d0/d1.d:exponent (double)
+<d2/d3.d:Exponent (double)
 
->d0d1.d:d0d1^d2d3
+>d0/d1.d:d0/d1^d2/d3
 
 >c-flag:cs=Error
 >v-flag:(cs)vs = overflow, (cs)vc = underflow
 ------------------------------------------------------------------
 $FE40 __RND         Pseudo-random floating-point numbers (rnd())
 
->d0d1.d:Floating point pseudo-random number (0 or greater and less than 1, single)
+>d0/d1.d:Floating point pseudo-random number (0 or greater and less than 1, single)
 ------------------------------------------------------------------
 $FE41 __SINH        Hyperbolic sine (sinh(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:sinh(d0d1)
+>d0/d1.d:sinh(d0/d1)
 
 >c-flag:cs=Error (overflow or underflow)
 ------------------------------------------------------------------
 $FE42 __COSH        Hyperbolic cosine (cosh(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:cosh(d0d1)
+>d0/d1.d:cosh(d0/d1)
 
 >c-flag:cs=Error (overflow or underflow)
 ------------------------------------------------------------------
 $FE43 __TANH        Hyperbolic tangent (tanh(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:tanh(d0d1)
+>d0/d1.d:tanh(d0/d1)
 
 >c-flag:cs=Error (overflow or underflow)
 ------------------------------------------------------------------
 $FE44 __ATANH       Inverse hyperbolic tangent (atanh(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:atanh(d0d1)
+>d0/d1.d:atanh(d0/d1)
 
 >c-flag:cs=Error (d0<=-1 or d0>=1)
 ------------------------------------------------------------------
 $FE45 __ASIN        Arc sine (asin(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:asin(double)(radians)
+>d0/d1.d:asin(double)(radians)
 
 >c-flag:cs=Error (d0<-1 or d0>1)
 ------------------------------------------------------------------
 $FE46 __ACOS        Arc cosine (acos(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:acos(d0d1)(radians)
+>d0/d1.d:acos(d0/d1)(radians)
 
 >c-flag:cs=Error (d0<-1 or d0>1)
 ------------------------------------------------------------------
 $FE47 __LOG10       Common logarithm (log10(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:log10(d0d1)
+>d0/d1.d:log10(d0/d1)
 
 >c-flag:cs=Error (overflow or underflow)
 ------------------------------------------------------------------
 $FE48 __LOG2        Bit logarithm (log2(double))
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:log2(d0d1)
+>d0/d1.d:log2(d0/d1)
 
 >c-flag:cs=Error (overflow or underflow)
 ------------------------------------------------------------------
 $FE49 __DFREXP      Separate the exponent and integer parts
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:Integer part (exponent part is 1, single)
+>d0/d1.d:Integer part (exponent part is 1, single)
 
 >d2.l:Exponent (signed long)
 ------------------------------------------------------------------
 $FE4A __DLDEXP      Combine the exponent and integer parts
 
-<d0d1.d:Integer part (single)
+<d0/d1.d:Integer part (single)
 <d2.l:Exponent (signed long)
 
->d0d1.d:Floating point number (exponent part added d2+1023, double)
+>d0/d1.d:Floating point number (exponent part added d2+1023, double)
 
 >c-flag:cs=Error
 ------------------------------------------------------------------
 $FE4B __DADDONE     Add 1 (double+1)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:d0d1+1
+>d0/d1.d:d0/d1+1
 ------------------------------------------------------------------
 $FE4C __DSUBONE     Subtract 1 (double-1)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:d0d1-1
+>d0/d1.d:d0/d1-1
 ------------------------------------------------------------------
 $FE4D __DDIVTWO     Divide by 2 (double/2)
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:d0d1/2
+>d0/d1.d:d0/d1/2
 
 >c-flag:cs=Error (underflow)
 ------------------------------------------------------------------
 $FE4E __DIEECNV     Convert floating-point number (double) to IEEE format
 
-<d0d1.d:Floating point number (double)
+<d0/d1.d:Floating point number (double)
 
->d0d1.d:d0d1(IEEE format)
+>d0/d1.d:d0/d1(IEEE format)
 
 In FLOAT1.X, converts from Sharp format to IEEE format and does nothing else.
 ------------------------------------------------------------------
 $FE4F __IEEDCNV     Convert from IEEE format to floating-point number (double)
 
-<d0d1.d:Floating point number (IEEE format, double)
+<d0/d1.d:Floating point number (IEEE format, double)
 
->d0d1.d:d0d1(double)
+>d0/d1.d:d0/d1(double)
 
 In FLOAT1.X, convert from IEEE format to Sharp format. Do nothing else.
 ------------------------------------------------------------------

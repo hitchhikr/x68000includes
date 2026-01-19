@@ -88,6 +88,29 @@ _EXIT2              equ     $FF4C
 _WAIT               equ     $FF4D
 _FILES              equ     $FF4E
 _NFILES             equ     $FF4F
+; ----
+; Older DOS calls
+__SETPDB            equ     $FF50
+__GETPDB            equ     $FF51
+__SETENV            equ     $FF52
+__GETENV            equ     $FF53
+__VERIFYG           equ     $FF54
+__COMMON            equ     $FF55
+__RENAME            equ     $FF56
+__FILEDATE          equ     $FF57
+__MALLOC2           equ     $FF58
+__MAKETMP           equ     $FF5A
+__NEWFILE           equ     $FF5B
+__LOCK              equ     $FF5C
+;RESERVED           equ     $FF5E
+__ASSIGN            equ     $FF5F
+__FFLUSMD           equ     $FF7A
+__OS_PATCH          equ     $FF7B
+__GETFCB            equ     $FF7C
+__S_MALLOC          equ     $FF7D
+__S_MFREE           equ     $FF7E
+__S_PROCESS         equ     $FF7F
+; ----
 _SETPDB             equ     $FF80
 _GETPDB             equ     $FF81
 _SETENV             equ     $FF82

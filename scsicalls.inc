@@ -29,11 +29,7 @@ _S_PAMEDIUM         equ     $32
 
 ; ------------------------------------------------------------------
 SCSI                MACRO
-                    IFNE    \1<$80
-                        moveq   #\1,d1
-                    ELSE
-                        move.l  #\1,d1
-                    ENDC
-                    moveq   #_SCSIDRV,d0
+                    moveq   #\1,d1
+                    moveq   #-($100-_SCSIDRV),d0
                     trap    #TRAP_IOSCALL
                     ENDM

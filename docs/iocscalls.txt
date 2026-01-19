@@ -1237,7 +1237,7 @@ $45 _B_WRITE        Write to Disk
 
         $80xx-$8Fxx SASI or SCSI drives
 
-<D2.l:Record number
+<D1.l:Record number
 
         $90xx-$93xx FDD0-FDD3
 
@@ -1271,7 +1271,7 @@ $46 _B_READ         Read from disk
 
         $80xx-$8Fxx SASI or SCSI drives
 
-<D2.l:Record number
+<D1.l:Record number
 
         $90xx-$93xx FDD0-FDD3
 
